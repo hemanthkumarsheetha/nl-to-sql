@@ -21,6 +21,31 @@ GOOGLE_API_KEY="<google-api-key>"
 API_KEY="<api-key>"
 ```
 
+## Database Setup
+
+### Create TableMetaData Table
+
+Before using the API, you need to create the `TableMetaData` table in your PostgreSQL database. This table stores metadata about ingested CSV files and their associated prompts.
+
+You can create the table by running the following SQL:
+
+```sql
+CREATE TABLE "table-meta-data" (
+    id SERIAL PRIMARY KEY,
+    table_name VARCHAR(255) NOT NULL,
+    prompt TEXT NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+```
+
+Alternatively, you can uncomment the following lines in `src/db/models.py` and run the application once to automatically create the table:
+
+```python
+# Uncomment these lines in src/db/models.py
+Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+```
+
 ## Running the API
 
 Start the FastAPI server:
