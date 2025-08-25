@@ -7,3 +7,10 @@ class HealthCheckResult(BaseModel):
 class ConvertCSVtoSQLTableResult(BaseModel):
     status: str
     table_name: str
+
+class CSVUploadParams(BaseModel):
+    file: UploadFile
+
+class QuerytoTableParams(BaseModel):
+    nl_query: str
+    file_name: str
