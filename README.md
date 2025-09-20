@@ -92,8 +92,7 @@ curl -X POST "http://localhost:8000/api/v1/text-to-sql/query-table-with-filter" 
 
 Response:
 ```json
-These are all the records with age greater than 25
-<all the records>
+"These are all the records with age greater than 25"
 ```
 
 ## API Documentation
@@ -102,4 +101,5 @@ Once the server is running, you can view the interactive API documentation at:
 - Swagger UI: `http://localhost:8000/docs`
 
 - ReDoc: `http://localhost:8000/redoc`
+
 
